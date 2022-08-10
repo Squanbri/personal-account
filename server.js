@@ -26,6 +26,19 @@ server.get('/auth/check', (req, res) => {
     res.sendStatus(401);
   }
 })
+
+server.use(/^(?!\/auth).*$/, (req, res, next) => {
+  if (req.headers.authorization === undefined || req.headers.authorization.split(' ')[0] !== 'Bearer') {
+    return res.sendStatus(401);
+  }
+
+  try {
+    isTokenVerify(req);
+    next();
+  } catch (e) {
+    res.sendStatus(401);
+  }
+})
   
 server.use(router);
 
