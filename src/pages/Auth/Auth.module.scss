@@ -34,4 +34,10 @@
     margin: auto;
     padding: 0 40px;
   }
+
+  .error {
+    color: $c_danger;
+    text-align: center;
+    margin: -20px 0 20px;
+  }
 }

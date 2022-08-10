@@ -1,6 +1,8 @@
 import { makeAutoObservable } from 'mobx';
 
 import { IAuthStore } from './types';
+import { TUserLogin } from 'types/entities/UserTypes';
+import { AuthService } from 'API';
 
 class AuthStore implements IAuthStore {
   isAuth: boolean | null;
@@ -34,15 +36,14 @@ class AuthStore implements IAuthStore {
     this.setAuth(false);
   }
 
-  async login(email: string, password: string) {
-    // const response = await AuthService.login(email, password);
-
-    // if ('token' in response) {
-    //   localStorage.setItem('token', response.token);
-    //   this.setAuth(true);
-    // }
+  async login(user: TUserLogin) {
+    const response = await AuthService.login(user);
     
-    // return response;
+    if (response.status !== 401) {
+      localStorage.setItem('token', response.data.token);
+    }
+    
+    return response;
   }
 
   logout = () => {

@@ -1,18 +1,31 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
 
+import { useStore } from 'hooks/useStore'
 import Page from 'components/Page/Page'
 import styles from './Auth.module.scss'
+import { staticLinks } from 'assets/data/links'
 
 const Auth: FC = () => {
+  const store = useStore();
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const isErrorNotEmpty = error !== '';
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+      store.auth.login(values)
+        .then(() => {
+          store.auth.setAuth(true);
+          navigate(staticLinks.personalAccount)
+        })
+        .catch(() => setError('Неверный логин или пароль'))
     },
   })
   return (
@@ -38,6 +51,12 @@ const Auth: FC = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
+
+        {isErrorNotEmpty && (
+          <Typography component='span' className={styles.error}>
+            {error}
+          </Typography>
+        )}
 
         <Button variant='contained' type='submit'>Войти</Button>
       </form>
