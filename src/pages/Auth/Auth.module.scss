@@ -1,0 +1,37 @@
+@import 'assets/styles/colors.scss';
+
+.page {
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  width: 400px;
+  height: fit-content;
+  background-color: $c_white;
+
+  padding: 20px 40px 40px 40px;
+
+  border-radius: 10px;
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  div {
+    margin-bottom: 20px;
+  }
+
+  button {
+    height: 56px;
+    width: fit-content;
+    margin: auto;
+    padding: 0 40px;
+  }
+}
