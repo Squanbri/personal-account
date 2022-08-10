@@ -18,24 +18,6 @@ class AuthStore implements IAuthStore {
     this.isAuth = isAuth;
   }
 
-  check = async () => {
-    // const token = localStorage.getItem('token');
-
-    // if (token !== null) {
-    //   const response = await AuthService.check();
-
-    //   if (response.status !== 401) {
-    //     this.setAuth(true);
-    //   } else {
-    //     this.setAuth(false);
-    //     localStorage.removeItem('token');
-    //   }
-    //   return;
-    // }
-
-    this.setAuth(false);
-  }
-
   async login(user: TUserLogin) {
     const response = await AuthService.login(user);
     
@@ -44,6 +26,23 @@ class AuthStore implements IAuthStore {
     }
     
     return response;
+  }
+
+  check() {
+    const token = localStorage.getItem('token');
+
+    if (token !== null) {
+      AuthService.check(token)
+        .then(() => this.setAuth(true))
+        .catch(() => {
+          localStorage.removeItem('token');
+          this.setAuth(false);
+        })
+
+      return;
+    }
+
+    this.setAuth(false);
   }
 
   logout = () => {

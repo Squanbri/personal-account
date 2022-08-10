@@ -6,7 +6,7 @@ import styles from './LoaderPage.module.scss';
 
 const LoaderPage: FC = () => {
   return (
-    <Page title='Загрузка...'>
+    <Page title='Загрузка...' className={styles.page}>
       <CircularProgress />
     </Page>
   )

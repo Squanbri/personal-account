@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   AppBar, 
   Box, 
@@ -6,6 +7,8 @@ import {
   Toolbar, 
   Typography 
 } from '@mui/material';
+
+import { staticLinks } from 'assets/data/links';
 
 const Header: FC = () => {
   return (
@@ -15,7 +18,10 @@ const Header: FC = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Личный кабинет
           </Typography>
-          <Button color="inherit">Login</Button>
+
+          <Link to={staticLinks.auth}>
+            <Button color="inherit">Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>

@@ -10,6 +10,14 @@ class AuthService {
       {...user}
     )
   }
+
+  check(token: string) {
+    return axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/check`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    })
+  }
 }
 
 export default new AuthService();

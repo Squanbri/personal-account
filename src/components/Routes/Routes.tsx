@@ -2,33 +2,22 @@ import { useRoutes } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import { useStore } from 'hooks/useStore';
-import {
-  unauthRoutes,
-  // authRoutes,
-  loaderRoute,
-} from './routesConfig';
+import { routes } from './routesConfig';
+import LoaderPage from 'pages/LoaderPage/LoaderPage';
+import Auth from 'pages/Auth/Auth';
 
 const Routes = observer(() => {
   const store = useStore();
-  
   const isAuth = store.auth.isAuth;
-
-  const routes = [];
-  const loader = [loaderRoute];
-
-  if (isAuth === false) {
-    routes.push(...unauthRoutes);
-  } 
-  // else {
-  //   routes.push(...authRoutes);
-  // }
-
   const routing = useRoutes(routes);
-  const loaderPage = useRoutes(loader)
 
-  return isAuth !== null 
-    ? routing
-    : loaderPage;
+  if (isAuth === null) {
+    return <LoaderPage/>
+  } else if (isAuth === false) {
+    return <Auth/>
+  }
+
+  return routing;
 });
 
 export default Routes;
