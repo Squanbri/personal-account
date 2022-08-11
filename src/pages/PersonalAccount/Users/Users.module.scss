@@ -1,0 +1,49 @@
+@import 'assets/styles/colors.scss';
+
+.user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 60px;
+  border-bottom: 1px solid $c_light;
+
+  transition: background-color .15s ease-in-out;
+  
+  .add {
+    position: absolute;
+  
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    opacity: 0.5;
+    transition: opacity .15s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $c_light;
+
+    .add {
+      opacity: 1;
+    }
+  }
+}
+
+.list {
+  overflow: auto;
+}
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

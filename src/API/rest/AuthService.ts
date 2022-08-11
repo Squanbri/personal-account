@@ -1,22 +1,21 @@
-import axios from 'axios';
-
-import { LoginResponse } from 'types/api/UserResponses';
+import makeRequest from 'API/makeRequest';
 import { TUserLogin } from 'types/entities/UserTypes';
+import { LoginResponse } from 'types/api/AuthResponses';
 
 class AuthService {
   login(user: TUserLogin) {
-    return axios.post<LoginResponse>(
-      `${process.env.REACT_APP_BACKEND_URL}/auth/login`, 
-      {...user}
-    )
+    return makeRequest<LoginResponse>({
+      method: 'POST',
+      url: '/auth/login',
+      data: {...user}
+    });
   }
 
-  check(token: string) {
-    return axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/check`, {
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
+  check() {
+    return makeRequest<LoginResponse>({
+      url: '/auth/check',
+      authToken: true
+    });
   }
 }
 

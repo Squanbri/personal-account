@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { FC } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import Header from 'components/Header/Header';
 import Routes from 'components/Routes/Routes';
@@ -13,6 +13,6 @@ const App: FC = () => {
       </BrowserRouter>
     </div>
   );
-}
+};
 
-export default App
+export default App;

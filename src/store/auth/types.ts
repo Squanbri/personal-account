@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
-import { LoginResponse } from 'types/api/UserResponses';
 import { TUserLogin } from 'types/entities/UserTypes';
+import { LoginResponse } from 'types/api/AuthResponses';
 export interface IAuthStore {
   isAuth: boolean | null;
 

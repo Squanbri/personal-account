@@ -32,12 +32,12 @@ class AuthStore implements IAuthStore {
     const token = localStorage.getItem('token');
 
     if (token !== null) {
-      AuthService.check(token)
+      AuthService.check()
         .then(() => this.setAuth(true))
         .catch(() => {
           localStorage.removeItem('token');
           this.setAuth(false);
-        })
+        });
 
       return;
     }
@@ -46,9 +46,8 @@ class AuthStore implements IAuthStore {
   }
 
   logout = () => {
-    // AuthService.logout();
-    // localStorage.removeItem('token');
-    // this.setAuth(false);
+    localStorage.removeItem('token');
+    this.setAuth(false);
   };
 }
 

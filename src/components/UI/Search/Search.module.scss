@@ -1,0 +1,19 @@
+@import 'assets/styles/colors.scss';
+
+.search {
+  display: flex;
+
+  padding: 20px;
+
+  border-bottom: 1px solid $c_light;
+
+  .input {
+    width: 100%;
+
+    margin-right: 20px;
+  }
+
+  .button {
+    width: 120px;
+  }
+}

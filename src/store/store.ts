@@ -1,16 +1,22 @@
-import { IAuthStore } from './auth/types';
 import { makeAutoObservable } from 'mobx';
+
+import { IAccountStore } from './account/types';
+import { IAuthStore } from './auth/types';
 import AuthStore from './auth/authStore';
+import AccountStore from './account/accountStore';
 
 interface IStore {
-  auth: IAuthStore;
+  authStore: IAuthStore;
+  accountStore: IAccountStore;
 }
 
 class Store implements IStore {
-  auth: IAuthStore;
+  authStore: IAuthStore;
+  accountStore: IAccountStore;
 
   constructor() {
-    this.auth = new AuthStore();
+    this.authStore = new AuthStore();
+    this.accountStore = new AccountStore();
 
     makeAutoObservable(this);
   }

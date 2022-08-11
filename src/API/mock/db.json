@@ -1,11 +1,19 @@
 {
   "users": [
-    { "id": 1, "email": "test@gmail.com", "password": "test" },
-    { "id": 2, "email": "test2@gmail.com", "password": "test" },
-    { "id": 3, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22" }
+    { "id": 1, "email": "test@gmail.com", "password": "test", "fullName": "Иванов Иван Иванович" },
+    { "id": 2, "email": "test2@gmail.com", "password": "test", "fullName": "Дмитриев Дмитрий Дмитриевич" },
+    { "id": 3, "email": "test3@gmail.com", "password": "test", "fullName": "Алексеев Алексе Алексеевич" },
+    { "id": 5, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 6, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 7, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 8, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 9, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 10, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 11, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 12, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" },
+    { "id": 13, "email": "boss@bossov.net", "password": "KlsD23KmmdKL*22", "fullName": "admin" }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "contacts": [
+    { "id": 4, "email": "test4@gmail.com", "password": "test", "fullName": "Николаев Николай Николаевич" }
+  ]
 }

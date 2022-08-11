@@ -1,0 +1,59 @@
+@import 'assets/styles/colors.scss';
+
+.page {
+  display: flex;
+
+  .container {
+    display: flex;
+  
+    padding-top: 100px;
+  }
+
+  .contactsWrapper {
+    display: flex;
+    flex-direction: column;
+  
+    max-width: 320px;
+    min-width: 320px;
+  
+    margin-right: 20px;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      width: 240px; 
+      white-space: nowrap;
+    }
+  }
+  
+  .usersWrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .title {
+    // margin-bottom: 10px;
+    width: 120px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.contacts,
+.users {
+  display: flex;
+  flex-direction: column;
+
+  height: 70vh;
+  width: 100%;
+
+  background-color: $c_white;
+
+  border: 1px solid $c_light;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+
+  overflow: hidden;
+}

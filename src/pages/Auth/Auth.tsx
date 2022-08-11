@@ -1,12 +1,12 @@
-import { FC, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Button, TextField, Typography } from '@mui/material'
-import { useFormik } from 'formik'
+import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, TextField, Typography } from '@mui/material';
+import { useFormik } from 'formik';
 
-import { useStore } from 'hooks/useStore'
-import Page from 'components/Page/Page'
-import styles from './Auth.module.scss'
-import { staticLinks } from 'assets/data/links'
+import { useStore } from 'hooks/useStore';
+import Page from 'components/Page/Page';
+import styles from './Auth.module.scss';
+import { staticLinks } from 'assets/data/links';
 
 const Auth: FC = () => {
   const store = useStore();
@@ -20,14 +20,14 @@ const Auth: FC = () => {
       password: '',
     },
     onSubmit: (values) => {
-      store.auth.login(values)
+      store.authStore.login(values)
         .then(() => {
-          store.auth.setAuth(true);
-          navigate(staticLinks.personalAccount)
+          store.authStore.setAuth(true);
+          navigate(staticLinks.personalAccount);
         })
-        .catch(() => setError('Неверный логин или пароль'))
+        .catch(() => setError('Неверный логин или пароль'));
     },
-  })
+  });
   return (
     <Page title='Авторизация' className={styles.page}>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
@@ -61,7 +61,7 @@ const Auth: FC = () => {
         <Button variant='contained' type='submit'>Войти</Button>
       </form>
     </Page>
-  )
-}
+  );
+};
 
-export default Auth
+export default Auth;

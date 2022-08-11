@@ -9,7 +9,7 @@ const LoaderPage: FC = () => {
     <Page title='Загрузка...' className={styles.page}>
       <CircularProgress />
     </Page>
-  )
-}
+  );
+};
 
 export default LoaderPage;

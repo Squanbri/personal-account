@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import { Context } from 'index'
+import { Context } from 'index';
 
 export const useStore = () => {
-  const { store } = useContext(Context)
-  return store
-}
+  const { store } = useContext(Context);
+  return store;
+};
