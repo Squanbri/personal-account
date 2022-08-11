@@ -6,7 +6,7 @@ import { routes } from './routesConfig';
 import LoaderPage from 'pages/LoaderPage/LoaderPage';
 import Auth from 'pages/Auth/Auth';
 
-const Routes = () => {
+const Routes = observer(() => {
   const store = useStore();
   const isAuth = store.authStore.isAuth;
   const routing = useRoutes(routes);
@@ -18,6 +18,6 @@ const Routes = () => {
   }
   
   return routing;
-};
+});
 
 export default Routes;

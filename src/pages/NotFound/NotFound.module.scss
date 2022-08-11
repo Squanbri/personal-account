@@ -1,0 +1,16 @@
+@import 'assets/styles/colors.scss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: $c_blue;
+
+  &:hover{
+    opacity: .5;
+  }
+}

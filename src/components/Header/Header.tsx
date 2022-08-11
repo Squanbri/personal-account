@@ -19,9 +19,11 @@ const Header: FC = observer(() => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            Личный кабинет
-          </Typography>
+          <Link to={staticLinks.personalAccount} className={styles.logo}>
+            <Typography variant='h6' component='div'>
+              Личный кабинет
+            </Typography>
+          </Link>
 
           {!isAuth &&
             <Link to={staticLinks.auth}>

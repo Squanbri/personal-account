@@ -1,5 +1,10 @@
 @import 'assets/styles/colors.scss';
 
+.logo {
+  flex-grow: 1;
+  color: $c_white;
+}
+
 .login {
   color: $c_white !important;
 }
