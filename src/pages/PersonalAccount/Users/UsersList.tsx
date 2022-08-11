@@ -2,6 +2,10 @@ import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useLocation } from 'react-router-dom';
 import { CircularProgress, Typography } from '@mui/material';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 
 import { useStore } from 'hooks/useStore';
 import User from './User';
@@ -36,9 +40,21 @@ const UsersList: FC = observer(() => {
 
   return (
     <div className={styles.list}>
-      {list.map((user, index) => 
-        <User key={index} user={user} />
-      )}
+      <TransitionGroup className={styles.group}>
+        {list.map((user, index) => 
+          <CSSTransition
+            key={user.id}
+            timeout={250}
+            classNames={{
+              enter: styles.itemEnter,
+              enterActive: styles.itemEnterActive,
+              exitActive: styles.itemExitActive,
+            }}
+          >
+            <User key={index} user={user} />
+          </CSSTransition>
+          )}
+      </TransitionGroup>
     </div>
   );
 });

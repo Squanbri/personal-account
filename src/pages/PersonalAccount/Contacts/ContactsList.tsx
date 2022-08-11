@@ -1,6 +1,10 @@
 import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { CircularProgress, Typography } from '@mui/material';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 
 import { useStore } from 'hooks/useStore';
 import Contact from './Contact';
@@ -34,9 +38,21 @@ const ContactsList: FC = observer(() => {
 
   return (
     <div className={styles.list}>
-      {list.map((contact, index) => 
-        <Contact key={index} contact={contact} />
-      )}
+      <TransitionGroup className={styles.group}>
+        {list.map((contact) => 
+          <CSSTransition
+            key={contact.id}
+            timeout={250}
+            classNames={{
+              enter: styles.itemEnter,
+              enterActive: styles.itemEnterActive,
+              exitActive: styles.itemExitActive,
+            }}
+          >
+            <Contact contact={contact} />
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </div>
   );
 });
