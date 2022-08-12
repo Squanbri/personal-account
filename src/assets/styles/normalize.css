@@ -17,6 +17,15 @@
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+html, body,
+#root, .App {
+  height: 100%;
+}
+
+main {
+  min-height: calc(100% - 56px);
+}
+
 /* Sections
    ========================================================================== */
 
@@ -35,7 +44,6 @@ body {
 main {
   display: flex;
   flex: 1 1;
-  min-height: calc(100vh - 64px);
   background-color: #F2F6F9;
 }
 

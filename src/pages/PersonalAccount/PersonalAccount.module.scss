@@ -21,7 +21,7 @@
     p {
       text-overflow: ellipsis;
       overflow: hidden; 
-      width: 240px; 
+      width: calc(100% - 50px); 
       white-space: nowrap;
     }
   }
@@ -31,6 +31,13 @@
     flex-direction: column;
 
     width: 100%;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      width: calc(100% - 120px); 
+      white-space: nowrap;
+    }
   }
 
   .title {
@@ -39,21 +46,36 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  
 }
 
 .contacts,
 .users {
   display: flex;
   flex-direction: column;
-
+  
   height: 70vh;
   width: 100%;
-
+  
   background-color: $c_white;
-
+  
   border: 1px solid $c_light;
   border-radius: 10px;
   border-top-left-radius: 0;
-
+  
   overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .contactsWrapper {
+    width: 100%;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    flex-direction: column !important;
+  }
 }
